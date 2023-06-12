@@ -1,12 +1,12 @@
 const { response } = require('express');
 const bcryptjs = require('bcryptjs');
 
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 
 const usuariosGet = async(req, res = response) => {
     // const {id, nombre, apellido} = req.query;
-    const query = { estado: true};
+    const query = { estado: true };
     const { limite = 5, desde = 0 } = req.query
     const [total, usuarios] = await Promise.all([
         Usuario.countDocuments(query),
@@ -61,11 +61,8 @@ const usuariosDelete = async (req, res) => {
     // Fisicamente lo borramos
     // const usuario = await Usuario.findByIdAndDelete(id);
 
-    const usuario = await Usuario.findByIdAndDelete(id, { estado: false });
-
-    res.json(
-        usuario
-    );
+    const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
+    res.json(usuario);
 }
 
 
