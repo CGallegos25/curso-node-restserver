@@ -2,6 +2,7 @@ const { response } = require('express');
 const bcryptjs = require('bcryptjs');
 
 const { generarJWT } = require('../helpers/generar-jwt');
+
 const Usuario = require('../models/Usuario');
 
 const login = async(req, res = response) => {
@@ -9,6 +10,7 @@ const login = async(req, res = response) => {
 
     try {
 
+        console.log('Test');
         // Verificar si el correo existe
         const usuario = await Usuario.findOne({ correo });
         if (!usuario) {
