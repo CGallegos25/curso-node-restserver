@@ -31,15 +31,15 @@ router.post('/', [
     validarCampos
 ], usuariosPost);
 
-router.delete('/:id',
-[   
-    validarJWT,
-    //esAdminRole,
-    //tieneRole('ADMIN_ROLE', 'VENTAS_ROLE', 'USER_ROLE'),
-    check('id', 'No es un id correcto').isMongoId(),
-    check('id').custom(existeUsuarioPorId),
-    validarCampos
-],
-usuariosDelete);
+// router.delete('/:id',
+// [   
+//     validarJWT,
+//     //esAdminRole,
+//     //tieneRole('ADMIN_ROLE', 'VENTAS_ROLE', 'USER_ROLE'),
+//     check('id', 'No es un id correcto').isMongoId(),
+//     check('id').custom(existeUsuarioPorId),
+//     validarCampos
+// ],
+// usuariosDelete);
 
 module.exports = router;
